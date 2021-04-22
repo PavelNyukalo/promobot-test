@@ -1,0 +1,96 @@
+.product h2 {
+  text-align: center;
+  font-weight: 400;
+}
+
+.product__item {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: repeat(2, min-content);
+
+  border: 3px solid $product-border;
+}
+
+.product__inner-wrapper {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product__title {
+  text-transform: uppercase;
+}
+
+.product__button {
+  box-sizing: border-box;
+
+  width: 150px;
+  padding: 5px;
+  margin-top: auto;
+
+  color: inherit;
+  text-align: center;
+
+  background-color: transparent;
+
+  border: 1px solid $product-border;
+
+  transition: color, background-color 0.1s linear;
+
+
+  &:hover,
+  &:focus {
+    color: $white;
+
+    background-color: $product-bg;
+  }
+}
+
+.product__image {
+  background-image: url("../img/decor/ellipse.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.product__description {
+  grid-column: 1/-1;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+
+  background-color: $product-bg;
+}
+
+.product__description p {
+  color: $white;
+}
+
+.product__cart {
+  flex-shrink: 0;
+
+  width: 50px;
+  height: 50px;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: background-color 0.1s linear;
+
+  &:hover {
+    background-color: $product-bg-cart;
+  }
+
+  &:hover path {
+    fill: $product-bg;
+  }
+
+  &:focus {
+    outline: 1px solid $white;
+    outline-offset: 1px;
+  }
+}
