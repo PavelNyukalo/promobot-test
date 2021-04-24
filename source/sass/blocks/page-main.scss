@@ -1,9 +1,18 @@
 .page-main h1 {
-  padding: 50px;
+  padding: 100px;
   margin: 0;
 
   text-align: center;
   font-weight: 400;
 
   background-color: $bg-grey;
+}
+
+.page-main__product {
+  margin: 40px auto;
+}
+
+.page-main__product h2 {
+  text-align: center;
+  font-weight: 400;
 }

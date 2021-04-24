@@ -3,8 +3,9 @@ html {
 }
 
 body {
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
+  display: flex;
+  flex-direction: column;
+
   min-width: 1160px;
   min-height: 100%;
   margin: 0;
@@ -23,4 +24,14 @@ a {
   &[href="#"] {
     cursor: initial;
   }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

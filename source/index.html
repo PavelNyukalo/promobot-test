@@ -6,7 +6,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="img/favicon/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/favicon/180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="preload" href="fonts/montserrat.woff2" as="font">
+  <link rel="preload" href="fonts/montserrat-bold.woff2" as="font">
+
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="lib/Swiperjs/swiper.css" />
 </head>
 
 <body>
@@ -23,28 +32,9 @@
   <main class="page-main">
     <h1>Витрина товаров</h1>
 
-    <section class="page-main__product product">
+    <section class="page-main__product">
       <h2>Загруженные товары</h2>
-
-      <div class="product__item">
-        <div class="product__inner-wrapper">
-          <h3 class="product__title">bvlgari</h3>
-          <span class="product__price">72000 &#8381;</span>
-          <a class="product__button" href="">Подробнее</a>
-        </div>
-
-        <img class="product__image" src="img/contents/product-1.png" alt="">
-
-        <div class="product__description">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis eos error dolor architecto harum sit inventore consequatur sint repellat? Neque fugit voluptatum dolore sequi voluptatibus hic enim minima, aliquid temporibus? Consectetur mollitia assumenda cumque suscipit soluta doloremque recusandae quos in odit eligendi, nostrum reiciendis obcaecati ducimus cupiditate. Eaque, architecto consequuntur. Porro quia fugiat voluptate eum, voluptatum ipsum pariatur eligendi saepe fuga recusandae modi? Voluptatem facere illum ullam quia quibusdam doloribus debitis deleniti? Corrupti sapiente quam maxime placeat quas voluptatum dicta incidunt enim modi aperiam eius vel aliquam exercitationem quasi quisquam rem est, quaerat similique ab nesciunt aliquid at, accusantium doloremque.</p>
-          <button class="product__cart">
-            <span class="visually-hidden">Добавить в корзину</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 18C16.5304 18 17.0391 18.2107 17.4142 18.5858C17.7893 18.9609 18 19.4696 18 20C18 20.5304 17.7893 21.0391 17.4142 21.4142C17.0391 21.7893 16.5304 22 16 22C15.4696 22 14.9609 21.7893 14.5858 21.4142C14.2107 21.0391 14 20.5304 14 20C14 19.4696 14.2107 18.9609 14.5858 18.5858C14.9609 18.2107 15.4696 18 16 18ZM16 19C15.7348 19 15.4804 19.1054 15.2929 19.2929C15.1054 19.4804 15 19.7348 15 20C15 20.2652 15.1054 20.5196 15.2929 20.7071C15.4804 20.8946 15.7348 21 16 21C16.2652 21 16.5196 20.8946 16.7071 20.7071C16.8946 20.5196 17 20.2652 17 20C17 19.7348 16.8946 19.4804 16.7071 19.2929C16.5196 19.1054 16.2652 19 16 19ZM7 18C7.53043 18 8.03914 18.2107 8.41421 18.5858C8.78929 18.9609 9 19.4696 9 20C9 20.5304 8.78929 21.0391 8.41421 21.4142C8.03914 21.7893 7.53043 22 7 22C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20C5 19.4696 5.21071 18.9609 5.58579 18.5858C5.96086 18.2107 6.46957 18 7 18ZM7 19C6.73478 19 6.48043 19.1054 6.29289 19.2929C6.10536 19.4804 6 19.7348 6 20C6 20.2652 6.10536 20.5196 6.29289 20.7071C6.48043 20.8946 6.73478 21 7 21C7.26522 21 7.51957 20.8946 7.70711 20.7071C7.89464 20.5196 8 20.2652 8 20C8 19.7348 7.89464 19.4804 7.70711 19.2929C7.51957 19.1054 7.26522 19 7 19ZM18 6H4.273L6.82 12H15C15.1555 12.0002 15.3089 11.964 15.4478 11.8942C15.5868 11.8244 15.7074 11.7229 15.8 11.598L18.8 7.598H18.801C18.9119 7.44936 18.9793 7.2728 18.9956 7.08806C19.012 6.90333 18.9766 6.71769 18.8935 6.55189C18.8104 6.3861 18.6828 6.24668 18.525 6.14922C18.3672 6.05176 18.1855 6.00009 18 6ZM15 13H6.866L6.1 14.56L6 15C6 15.2652 6.10536 15.5196 6.29289 15.7071C6.48043 15.8946 6.73478 16 7 16H18V17H7C6.65177 17.0002 6.30952 16.9094 6.00713 16.7367C5.70474 16.564 5.45269 16.3153 5.27591 16.0153C5.09912 15.7153 5.00374 15.3743 4.9992 15.0261C4.99465 14.6779 5.08111 14.3345 5.25 14.03L5.97 12.556L2.338 4H1V3H3L3.849 5H18C18.3779 5.00004 18.748 5.10712 19.0675 5.30885C19.3871 5.51059 19.6429 5.79871 19.8054 6.13985C19.9679 6.481 20.0305 6.8612 19.9858 7.23642C19.9411 7.61165 19.7911 7.96654 19.553 8.26L16.639 12.146C16.4548 12.4098 16.2095 12.6252 15.9242 12.7739C15.6388 12.9226 15.3218 13.0001 15 13Z" fill="white"/>
-            </svg>
-          </button>
-        </div>
-      </div>
+      <div class="product"></div>
     </section>
   </main>
 
@@ -94,6 +84,101 @@
       <p class="copyright__text">Developed by <span>Pavel Nyukalo</span></p>
     </div>
   </footer>
+
+  <!-- Счетчик корзины -->
+  <template id="count">
+    <span class="count"></span>
+  </template>
+
+  <!-- Шаблон карточки товара -->
+  <template id="product-item">
+    <div class="product__item" id="">
+      <div class="product__inner-wrapper">
+        <h3 class="product__title"></h3>
+        <span class="product__price"></span>
+        <a class="product__button button" href="product.html">Подробнее</a>
+      </div>
+
+      <img class="product__image" src="#" width="246" height="246" alt="">
+
+      <div class="product__description product__description--hidden">
+        <p></p>
+        <button class="product__cart" type="button">
+          <span class="visually-hidden">Добавить в корзину</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 18C16.5304 18 17.0391 18.2107 17.4142 18.5858C17.7893 18.9609 18 19.4696 18 20C18 20.5304 17.7893 21.0391 17.4142 21.4142C17.0391 21.7893 16.5304 22 16 22C15.4696 22 14.9609 21.7893 14.5858 21.4142C14.2107 21.0391 14 20.5304 14 20C14 19.4696 14.2107 18.9609 14.5858 18.5858C14.9609 18.2107 15.4696 18 16 18ZM16 19C15.7348 19 15.4804 19.1054 15.2929 19.2929C15.1054 19.4804 15 19.7348 15 20C15 20.2652 15.1054 20.5196 15.2929 20.7071C15.4804 20.8946 15.7348 21 16 21C16.2652 21 16.5196 20.8946 16.7071 20.7071C16.8946 20.5196 17 20.2652 17 20C17 19.7348 16.8946 19.4804 16.7071 19.2929C16.5196 19.1054 16.2652 19 16 19ZM7 18C7.53043 18 8.03914 18.2107 8.41421 18.5858C8.78929 18.9609 9 19.4696 9 20C9 20.5304 8.78929 21.0391 8.41421 21.4142C8.03914 21.7893 7.53043 22 7 22C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20C5 19.4696 5.21071 18.9609 5.58579 18.5858C5.96086 18.2107 6.46957 18 7 18ZM7 19C6.73478 19 6.48043 19.1054 6.29289 19.2929C6.10536 19.4804 6 19.7348 6 20C6 20.2652 6.10536 20.5196 6.29289 20.7071C6.48043 20.8946 6.73478 21 7 21C7.26522 21 7.51957 20.8946 7.70711 20.7071C7.89464 20.5196 8 20.2652 8 20C8 19.7348 7.89464 19.4804 7.70711 19.2929C7.51957 19.1054 7.26522 19 7 19ZM18 6H4.273L6.82 12H15C15.1555 12.0002 15.3089 11.964 15.4478 11.8942C15.5868 11.8244 15.7074 11.7229 15.8 11.598L18.8 7.598H18.801C18.9119 7.44936 18.9793 7.2728 18.9956 7.08806C19.012 6.90333 18.9766 6.71769 18.8935 6.55189C18.8104 6.3861 18.6828 6.24668 18.525 6.14922C18.3672 6.05176 18.1855 6.00009 18 6ZM15 13H6.866L6.1 14.56L6 15C6 15.2652 6.10536 15.5196 6.29289 15.7071C6.48043 15.8946 6.73478 16 7 16H18V17H7C6.65177 17.0002 6.30952 16.9094 6.00713 16.7367C5.70474 16.564 5.45269 16.3153 5.27591 16.0153C5.09912 15.7153 5.00374 15.3743 4.9992 15.0261C4.99465 14.6779 5.08111 14.3345 5.25 14.03L5.97 12.556L2.338 4H1V3H3L3.849 5H18C18.3779 5.00004 18.748 5.10712 19.0675 5.30885C19.3871 5.51059 19.6429 5.79871 19.8054 6.13985C19.9679 6.481 20.0305 6.8612 19.9858 7.23642C19.9411 7.61165 19.7911 7.96654 19.553 8.26L16.639 12.146C16.4548 12.4098 16.2095 12.6252 15.9242 12.7739C15.6388 12.9226 15.3218 13.0001 15 13Z" fill="white"/>
+          </svg>
+        </button>
+
+        <div class="product__question">
+          <button class="product__add button" type="button">Добавить в корзину</button>
+          <button class="product__open-basket button" type="button">Открыть корзину</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- Шаблон корзины -->
+  <template id="basket">
+    <div class="modal-background">
+      <section class="basket">
+        <h2>Корзина выбранных товаров</h2>
+
+        <button class="basket__close" type="button">
+          <span class="visually-hidden">Закрыть корзину</span>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.4 3.46181L16 13.0618L25.6 3.4909C25.789 3.29858 26.0159 3.14757 26.2662 3.04743C26.5166 2.94728 26.785 2.90017 27.0545 2.90909C27.5834 2.94331 28.0817 3.16884 28.4564 3.54357C28.8312 3.9183 29.0567 4.41661 29.0909 4.94545C29.0935 5.20547 29.0433 5.46331 28.9433 5.70335C28.8433 5.94338 28.6956 6.16059 28.5091 6.34181L18.88 16L28.5091 25.6582C28.8873 26.0247 29.0967 26.5309 29.0909 27.0545C29.0567 27.5834 28.8312 28.0817 28.4564 28.4564C28.0817 28.8311 27.5834 29.0567 27.0545 29.0909C26.785 29.0998 26.5166 29.0527 26.2662 28.9526C26.0159 28.8524 25.789 28.7014 25.6 28.5091L16 18.9382L6.42909 28.5091C6.24008 28.7014 6.01321 28.8524 5.76284 28.9526C5.51248 29.0527 5.24405 29.0998 4.97454 29.0909C4.43584 29.0629 3.92662 28.8363 3.54518 28.4548C3.16374 28.0734 2.93713 27.5642 2.90909 27.0254C2.90646 26.7654 2.95667 26.5076 3.05668 26.2676C3.1567 26.0275 3.30442 25.8103 3.49091 25.6291L13.12 16L3.46182 6.34181C3.28058 6.15814 3.13823 5.93983 3.04326 5.69991C2.9483 5.46 2.90266 5.2034 2.90909 4.94545C2.94331 4.41661 3.16884 3.9183 3.54357 3.54357C3.9183 3.16884 4.41661 2.94331 4.94545 2.90909C5.21286 2.89638 5.48002 2.93891 5.73027 3.034C5.98053 3.1291 6.20851 3.27473 6.4 3.46181V3.46181Z" fill="#D75A4A"/>
+          </svg>
+        </button>
+
+        <form class="basket__form" action="#">
+          <button class="basket__print button" type="button">Распечатать позиции</button>
+          <button class="basket__submit button" type="submit">Оформить заказ</button>
+        </form>
+      </section>
+    </div>
+  </template>
+
+  <!-- Шаблон элемента корзины -->
+  <template id="basket-item">
+    <div class="basket__item basket-item" id="">
+      <img class="basket-item__image" src="#" width="100" height="100" alt="">
+
+      <div class="basket-item__inner-wrapper">
+        <h3 class="basket-item__title"></h3>
+        <span class="basket-item__price"></span>
+      </div>
+
+      <div class="basket-item__interactive">
+        <button class="basket-item__del" type="button">
+          <span class="visually-hidden">Удалить позицию</span>
+        </button>
+
+        <div class="basket-item__quantity">
+          <label for="quantity">Количество:</label>
+
+          <button class="basket-item__change basket-item__change--minus" type="button">
+            <span class="visually-hidden">Уменьшить количество</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 12H4" stroke="#061B28" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          <input class="basket-item__input" type="number" name="quantity" id="quantity" min="1" max="100" step="1" placeholder="1">
+
+          <button class="basket-item__change basket-item__change--plus" type="button">
+            <span class="visually-hidden">Увеличить количество</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 12H4M12 20V12V20ZM12 12V4V12ZM12 12H20H12Z" stroke="#061B28" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="lib/Swiperjs/swiper.js"></script>
+  <script src="js/index.js" type="module"></script>
 </body>
 
 </html>
