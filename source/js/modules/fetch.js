@@ -1,6 +1,4 @@
-/* eslint-disable no-console */
-
-const url = 'https://raw.githubusercontent.com/PavelNyukalo/promobot-test/master/source/products.json';
+const url = 'https://raw.githubusercontent.com/PavelNyukalo/promobot-test/master/products.json';
 
 const getData = (onSuccess) => {
   fetch(url)

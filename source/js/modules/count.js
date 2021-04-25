@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {basket} from './basket.js';
 
 class Count {

@@ -5,15 +5,13 @@ const sourcemap = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-// const csso = require('postcss-csso');
+const csso = require('postcss-csso');
 const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
 const uglify = require('gulp-uglify-es').default;
 const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp');
 const del = require('del');
 const sync = require('browser-sync').create();
-
 
 // Styles
 
@@ -24,11 +22,11 @@ const styles = () => {
     .pipe(sass())
     .pipe(postcss([
       autoprefixer(),
-      // csso(),
+      csso(),
     ]))
-    // .pipe(rename('style.min.css'))
+    .pipe(rename('style.min.css'))
     .pipe(sourcemap.write('.'))
-    .pipe(gulp.dest('source/css'))
+    .pipe(gulp.dest('build/css'))
     .pipe(sync.stream());
 };
 
@@ -47,9 +45,9 @@ const html = () => {
 // Scripts
 
 const scripts = () => {
-  return gulp.src('source/js/script.js')
+  return gulp.src('source/js/index.js')
     .pipe(uglify())
-    .pipe(rename('script.min.js'))
+    .pipe(rename('index.min.js'))
     .pipe(gulp.dest('build/js'))
     .pipe(sync.stream());
 };
@@ -73,18 +71,6 @@ const images = () => {
 };
 
 exports.images = images;
-
-// WebP
-
-const createWebp = () => {
-  return gulp.src('source/img/**/*.{jpg,png}')
-    .pipe(webp({
-      quality: 90,
-    }))
-    .pipe(gulp.dest('build/img'));
-};
-
-exports.createWebp = createWebp;
 
 // Copy
 
@@ -112,7 +98,7 @@ const clean = () => {
 const server = (done) => {
   sync.init({
     server: {
-      baseDir: 'source',
+      baseDir: 'build',
     },
     cors: true,
     notify: false,
@@ -148,7 +134,6 @@ const build = gulp.series(
     scripts,
     copy,
     images,
-    createWebp,
   ));
 
 exports.build = build;
@@ -160,9 +145,8 @@ exports.default = gulp.series(
   gulp.parallel(
     styles,
     html,
-    // scripts,
+    scripts,
     copy,
-    // createWebp,
   ),
   gulp.series(
     server,

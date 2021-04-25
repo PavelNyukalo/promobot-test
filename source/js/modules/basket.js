@@ -1,5 +1,6 @@
-/* eslint-disable no-console */
 import {count} from './count.js';
+import {formatNumber} from '../utils/format-number.js';
+import {getScrollbarWidth} from '../utils/getScrollbarWidth.js';
 
 class Basket {
   constructor(element) {
@@ -19,6 +20,8 @@ class Basket {
   onBasketShow(evt) {
     evt.preventDefault();
     document.body.append(this.basket);
+    document.body.style.paddingRight = `${getScrollbarWidth()}px`;
+    document.body.style.overflow = 'hidden';
 
     this.basketCloseButton.addEventListener('click', this.onBasketCloseClick);
   }
@@ -28,6 +31,8 @@ class Basket {
     this.basketCloseButton.removeEventListener('click', this.onBasketCloseClick);
 
     this.basket.remove();
+    document.body.style.paddingRight = '0';
+    document.body.style.overflow = 'auto';
   }
 }
 
@@ -60,9 +65,10 @@ class BasketItem {
   init() {
     this.basketItemElement.id = `basket-item-${this.id}`;
     this.basketItemTitle.textContent = this.name;
-    this.basketItemPrice.textContent = `${this.price} \u{20BD}`;
+    this.basketItemPrice.textContent = `${formatNumber(this.price)} \u{20BD}`;
     this.basketItemPrice.setAttribute('data-price', this.price);
     this.basketItemImage.src = this.cover;
+    this.basketItemImage.alt = `Часы ${this.name}`;
 
     this.basketItemDel.addEventListener('click', this.removeItem);
     this.basketItemMinus.addEventListener('click', this.removeProductQuantity);
@@ -108,6 +114,7 @@ class BasketItem {
 
   updateCount() {
     count.update();
+    basket.sum();
   }
 }
 

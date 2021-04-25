@@ -10,9 +10,23 @@
 
 .page-main__product {
   margin: 40px auto;
+
+  &--slider {
+    padding-bottom: 24px;
+  }
 }
 
 .page-main__product h2 {
   text-align: center;
   font-weight: 400;
+}
+
+// Swiperjs styles
+
+.page-main__product.swiper-container {
+  z-index: 0;
+}
+
+.page-main__product .swiper-pagination {
+  bottom: 0;
 }
