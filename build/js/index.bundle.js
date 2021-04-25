@@ -26,11 +26,13 @@ class Basket {
     this.basket = document.querySelector('#basket')
       .content.querySelector('.modal-background')
       .cloneNode(true);
-    this.basketForm = this.basket.querySelector('.basket__form');
-    this.basketCloseButton = this.basket.querySelector('.basket__close');
+    this.basketSection = this.basket.querySelector('.basket');
+    this.basketForm = this.basketSection.querySelector('.basket__form');
+    this.basketCloseButton = this.basketSection.querySelector('.basket__close');
 
     this.onBasketShow = this.onBasketShow.bind(this);
     this.onBasketCloseClick = this.onBasketCloseClick.bind(this);
+    this.onWindowClick = this.onWindowClick.bind(this);
 
     this.basketElement.addEventListener('click', this.onBasketShow);
   }
@@ -42,6 +44,7 @@ class Basket {
     document.body.style.overflow = 'hidden';
 
     this.basketCloseButton.addEventListener('click', this.onBasketCloseClick);
+    this.basket.addEventListener('click', this.onWindowClick);
   }
 
   onBasketCloseClick(evt) {
@@ -51,6 +54,12 @@ class Basket {
     this.basket.remove();
     document.body.style.paddingRight = '0';
     document.body.style.overflow = 'auto';
+  }
+
+  onWindowClick(evt) {
+    if (evt.target == this.basket) {
+      this.onBasketCloseClick(evt);
+    }
   }
 }
 
@@ -132,7 +141,6 @@ class BasketItem {
 
   updateCount() {
     _count_js__WEBPACK_IMPORTED_MODULE_0__.count.update();
-    basket.sum();
   }
 }
 
@@ -319,6 +327,7 @@ class ProductCard {
     this.openBasket = this.openBasket.bind(this);
     this.closeCard = this.closeCard.bind(this);
     this.showShortMessage = this.showShortMessage.bind(this);
+    this.onWindowClick = this.onWindowClick.bind(this);
 
     this.id = data.id;
     this.name = data.name;
@@ -339,6 +348,7 @@ class ProductCard {
     this.addToBasketButton.addEventListener('click', this.addToBasket);
     this.openBasketButton.addEventListener('click', this.openBasket);
     this.closeProductButton.addEventListener('click', this.closeCard);
+    this.productCardElementTemplate.addEventListener('click', this.onWindowClick);
   }
 
   insertTo(parent) {
@@ -370,6 +380,12 @@ class ProductCard {
   closeCard(evt) {
     evt.preventDefault();
     this.productCardElementTemplate.remove();
+  }
+
+  onWindowClick(evt) {
+    if (evt.target == this.productCardElementTemplate) {
+      this.closeCard(evt);
+    }
   }
 
   showShortMessage(text, additionalClass) {

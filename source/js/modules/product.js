@@ -79,6 +79,7 @@ class ProductCard {
     this.openBasket = this.openBasket.bind(this);
     this.closeCard = this.closeCard.bind(this);
     this.showShortMessage = this.showShortMessage.bind(this);
+    this.onWindowClick = this.onWindowClick.bind(this);
 
     this.id = data.id;
     this.name = data.name;
@@ -99,6 +100,7 @@ class ProductCard {
     this.addToBasketButton.addEventListener('click', this.addToBasket);
     this.openBasketButton.addEventListener('click', this.openBasket);
     this.closeProductButton.addEventListener('click', this.closeCard);
+    this.productCardElementTemplate.addEventListener('click', this.onWindowClick);
   }
 
   insertTo(parent) {
@@ -130,6 +132,12 @@ class ProductCard {
   closeCard(evt) {
     evt.preventDefault();
     this.productCardElementTemplate.remove();
+  }
+
+  onWindowClick(evt) {
+    if (evt.target == this.productCardElementTemplate) {
+      this.closeCard(evt);
+    }
   }
 
   showShortMessage(text, additionalClass) {
