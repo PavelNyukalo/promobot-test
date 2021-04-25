@@ -215,7 +215,7 @@ const getData = (onSuccess) => {
       onSuccess(products);
     })
     .catch(() => {
-      document.querySelector('.product').append('Упс..Не удалось загрузить данные с сервера😢');
+      document.querySelector('.product').textContent = 'Упс..Не удалось загрузить данные с сервера😢';
     });
 };
 
@@ -302,10 +302,11 @@ class Product {
 
 class ProductCard {
   constructor(data) {
-    this.productCardElement = document.querySelector('#product-item-card')
+    this.productCardElementTemplate = document.querySelector('#product-item-card')
       .content.querySelector('.modal-background')
       .cloneNode(true);
 
+    this.productCardElement = this.productCardElementTemplate.querySelector('.product__item--card');
     this.productCardTitle = this.productCardElement.querySelector('.product__title');
     this.productCardPrice = this.productCardElement.querySelector('.product__price');
     this.productCardImage = this.productCardElement.querySelector('.product__image');
@@ -341,7 +342,7 @@ class ProductCard {
   }
 
   insertTo(parent) {
-    parent.append(this.productCardElement);
+    parent.append(this.productCardElementTemplate);
   }
 
   addToBasket(evt) {
@@ -368,7 +369,7 @@ class ProductCard {
 
   closeCard(evt) {
     evt.preventDefault();
-    this.productCardElement.remove();
+    this.productCardElementTemplate.remove();
   }
 
   showShortMessage(text, additionalClass) {
@@ -428,12 +429,13 @@ const rearrangeLayoutForSlider = () => {
   pageMainProduct.classList.add('page-main__product--slider', 'swiper-container');
   pageMainProduct.append(swiperPagination);
 
-  productContainer.classList.add('swiper-wrapper', 'product--silder');
+  productContainer.classList.add('swiper-wrapper', 'product--slider');
 };
 
 const initSlider = () => {
   rearrangeLayoutForSlider();
-  new Swiper('.swiper-container', swiperOptions);
+  // eslint-disable-next-line no-unused-vars
+  const slider = new Swiper('.swiper-container', swiperOptions);
 };
 
 
@@ -453,6 +455,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 const formatNumber = (num) => {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, `$1 `);
+};
+
+
+/***/ }),
+
+/***/ "./source/js/utils/getRandomInteger.js":
+/*!*********************************************!*\
+  !*** ./source/js/utils/getRandomInteger.js ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getRandomInteger": function() { return /* binding */ getRandomInteger; }
+/* harmony export */ });
+const getRandomInteger = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 
@@ -541,63 +560,71 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_fetch_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/fetch.js */ "./source/js/modules/fetch.js");
 /* harmony import */ var _modules_product_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/product.js */ "./source/js/modules/product.js");
 /* harmony import */ var _modules_swiper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/swiper.js */ "./source/js/modules/swiper.js");
-/* harmony import */ var _modules_basket_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/basket.js */ "./source/js/modules/basket.js");
+/* harmony import */ var _utils_getRandomInteger_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/getRandomInteger.js */ "./source/js/utils/getRandomInteger.js");
+/* harmony import */ var _modules_basket_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/basket.js */ "./source/js/modules/basket.js");
+
 
 
 
 
 
 const MIN = 0;
-const MAX = 10;
+const MAX = 9;
 
 const productContainer = document.querySelector('.product');
 
-const getRandomInteger = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+setTimeout(() => {
+  (0,_modules_fetch_js__WEBPACK_IMPORTED_MODULE_0__.getData)((products) => {
+    productContainer.textContent = '';
+    const minItem = (0,_utils_getRandomInteger_js__WEBPACK_IMPORTED_MODULE_3__.getRandomInteger)(MIN, MAX);
+    const maxItem = (0,_utils_getRandomInteger_js__WEBPACK_IMPORTED_MODULE_3__.getRandomInteger)(MIN, MAX);
+    let randomArray = [];
 
-(0,_modules_fetch_js__WEBPACK_IMPORTED_MODULE_0__.getData)((products) => {
-  const minItem = getRandomInteger(MIN, MAX);
-  const maxItem = getRandomInteger(MIN, MAX);
-  let randomArray = [];
+    (minItem < maxItem)
+      ? randomArray = products.slice(minItem, maxItem)
+      : randomArray = products.slice(maxItem, minItem);
 
-  (minItem < maxItem)
-    ? randomArray = products.slice(minItem, maxItem)
-    : randomArray = products.slice(maxItem, minItem);
+    switch (randomArray.length) {
+      case 0:
+        productContainer.append('Рандомные числа совпали, попробуйте ещё😁');
+        break;
 
-  switch (randomArray.length) {
-    case 0:
-      productContainer.append('Рандомные числа совпали, попробуйте ещё😁');
-      break;
+      case 1:
+        randomArray.forEach((productObject) => {
+          const product = new _modules_product_js__WEBPACK_IMPORTED_MODULE_1__.Product(productObject);
+          product.init('onlyOne');
+          product.insertTo(productContainer);
+        });
+        break;
 
-    case 1:
-      randomArray.forEach((productObject) => {
-        const product = new _modules_product_js__WEBPACK_IMPORTED_MODULE_1__.Product(productObject);
-        product.init('onlyOne');
-        product.insertTo(productContainer);
-      });
-      break;
+      case 2:
+        randomArray.forEach((productObject) => {
+          const product = new _modules_product_js__WEBPACK_IMPORTED_MODULE_1__.Product(productObject);
+          product.init();
+          product.insertTo(productContainer);
+        });
+        break;
 
-    case 2:
-      randomArray.forEach((productObject) => {
-        const product = new _modules_product_js__WEBPACK_IMPORTED_MODULE_1__.Product(productObject);
-        product.init();
-        product.insertTo(productContainer);
-      });
-      break;
+      default:
+        randomArray.forEach((productObject) => {
+          const product = new _modules_product_js__WEBPACK_IMPORTED_MODULE_1__.Product(productObject);
+          product.init('slider');
 
-    default:
-      randomArray.forEach((productObject) => {
-        const product = new _modules_product_js__WEBPACK_IMPORTED_MODULE_1__.Product(productObject);
-        product.init('slider');
+          product.insertTo(productContainer);
+        });
 
-        product.insertTo(productContainer);
-      });
+        try {
+          (0,_modules_swiper_js__WEBPACK_IMPORTED_MODULE_2__.initSlider)();
+        } catch (error) {
+          alert('Во время инициализации слайдера произошла ошибка, приношу извинения, товары будут выведены на экран не в виде слайдера. Для отображения слайдера попробуйте обновить страницу');
 
-      (0,_modules_swiper_js__WEBPACK_IMPORTED_MODULE_2__.initSlider)();
-      break;
-  }
-});
+          productContainer.classList.remove('swiper-wrapper', 'product--slider');
+          productContainer.classList.add('product--slider-error');
+        }
+        break;
+    }
+  });
+}, 3000);
 
 }();
 /******/ })()

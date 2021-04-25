@@ -4,10 +4,14 @@
   align-items: start;
   flex-wrap: wrap;
 
-  &--silder {
+  &--slider {
     justify-content: initial;
     flex-wrap: nowrap;
   }
+}
+
+.product--slider-error .product__item {
+  width: auto;
 }
 
 .product__item {

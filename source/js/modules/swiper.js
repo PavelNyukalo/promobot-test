@@ -27,12 +27,13 @@ const rearrangeLayoutForSlider = () => {
   pageMainProduct.classList.add('page-main__product--slider', 'swiper-container');
   pageMainProduct.append(swiperPagination);
 
-  productContainer.classList.add('swiper-wrapper', 'product--silder');
+  productContainer.classList.add('swiper-wrapper', 'product--slider');
 };
 
 const initSlider = () => {
   rearrangeLayoutForSlider();
-  new Swiper('.swiper-container', swiperOptions);
+  // eslint-disable-next-line no-unused-vars
+  const slider = new Swiper('.swiper-container', swiperOptions);
 };
 
 export {initSlider};

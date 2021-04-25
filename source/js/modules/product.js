@@ -62,10 +62,11 @@ class Product {
 
 class ProductCard {
   constructor(data) {
-    this.productCardElement = document.querySelector('#product-item-card')
+    this.productCardElementTemplate = document.querySelector('#product-item-card')
       .content.querySelector('.modal-background')
       .cloneNode(true);
 
+    this.productCardElement = this.productCardElementTemplate.querySelector('.product__item--card');
     this.productCardTitle = this.productCardElement.querySelector('.product__title');
     this.productCardPrice = this.productCardElement.querySelector('.product__price');
     this.productCardImage = this.productCardElement.querySelector('.product__image');
@@ -101,7 +102,7 @@ class ProductCard {
   }
 
   insertTo(parent) {
-    parent.append(this.productCardElement);
+    parent.append(this.productCardElementTemplate);
   }
 
   addToBasket(evt) {
@@ -128,7 +129,7 @@ class ProductCard {
 
   closeCard(evt) {
     evt.preventDefault();
-    this.productCardElement.remove();
+    this.productCardElementTemplate.remove();
   }
 
   showShortMessage(text, additionalClass) {

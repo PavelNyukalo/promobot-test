@@ -7,7 +7,7 @@ const getData = (onSuccess) => {
       onSuccess(products);
     })
     .catch(() => {
-      document.querySelector('.product').append('Упс..Не удалось загрузить данные с сервера😢');
+      document.querySelector('.product').textContent = 'Упс..Не удалось загрузить данные с сервера😢';
     });
 };
 
