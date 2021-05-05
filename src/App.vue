@@ -189,7 +189,28 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./sass/normalize.scss";
 @import "./sass/variables.scss";
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url("../public/fonts/montserrat.woff2") format("woff2"),
+    url("../public/fonts/montserrat.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url("../public/fonts/montserrat-bold.woff2") format("woff2"),
+    url("../public/fonts/montserrat-bold.woff") format("woff");
+}
+
+@import "./sass/base.scss";
 
 .short-message {
   position: fixed;

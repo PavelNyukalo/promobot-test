@@ -77,7 +77,7 @@ import MyPreloader from "./MyPreloader.vue";
 import SwiperCore, { Pagination, Keyboard } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/swiper.scss";
-import "swiper/components/pagination/pagination.scss";
+// import "swiper/components/pagination/pagination.scss";
 SwiperCore.use([Pagination, Keyboard]);
 
 export default {
@@ -113,6 +113,7 @@ export default {
 
 <style lang="scss">
 @import "../../sass/variables.scss";
+@import "swiper/components/pagination/pagination.scss";
 
 .product {
   display: flex;
@@ -230,25 +231,8 @@ export default {
 
   margin: auto;
 
-  background-image: url("/img/decor/ellipse.svg");
+  background-image: url("../../assets/img/decor/ellipse.svg");
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.product__description {
-  margin-right: 5px;
-}
-
-.product__add,
-.product__open-basket,
-.product__close {
-  margin: 5px;
-
-  border-color: $product-border;
-
-  &:hover,
-  &:focus {
-    background-color: $product-bg;
-  }
 }
 </style>

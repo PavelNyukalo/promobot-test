@@ -2,7 +2,7 @@
   <header class="page-header">
     <a class="page-header__logo" href="#">
       <img
-        src="img/logo.svg"
+        src="../../assets/img/logo.svg"
         width="130"
         height="20"
         alt="Логотип витрины Promobotic"
@@ -69,7 +69,7 @@ export default {
   padding: 0;
 
   background-color: transparent;
-  background-image: url("/img/icons/cart.svg");
+  background-image: url("../../assets/img/icons/cart.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 30px;

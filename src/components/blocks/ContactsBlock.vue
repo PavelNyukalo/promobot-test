@@ -2,7 +2,7 @@
   <div class="contacts">
     <a class="contacts__logo" href="#">
       <img
-        src="img/logo-light.svg"
+        src="../../assets/img/logo-light.svg"
         width="130"
         height="20"
         alt="Логотип витрины Promobotic"

@@ -266,7 +266,7 @@ export default {
 }
 
 .basket-item__image {
-  background-image: url("/img/decor/ellipse.svg");
+  background-image: url("../../assets/img/decor/ellipse.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100px;
@@ -291,7 +291,7 @@ export default {
   padding: 0;
 
   background-color: transparent;
-  background-image: url("/img/icons/del.svg");
+  background-image: url("../../assets/img/icons/del.svg");
   background-position: center;
   background-repeat: no-repeat;
 

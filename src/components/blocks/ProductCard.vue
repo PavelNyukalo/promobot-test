@@ -160,7 +160,7 @@ export default {
 
   margin: auto;
 
-  background-image: url("/img/decor/ellipse.svg");
+  background-image: url("../../assets/img/decor/ellipse.svg");
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -169,9 +169,9 @@ export default {
   margin-right: 5px;
 }
 
-.product__add,
-.product__open-basket,
-.product__close {
+.product__inner-wrapper--card .product__add,
+.product__inner-wrapper--card .product__open-basket,
+.product__inner-wrapper--card .product__close {
   margin: 5px;
 
   border-color: $product-border;
