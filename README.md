@@ -6,16 +6,33 @@
 
 Браузерная поддержка - Google Chrome, Mozilla Firefox.
 
-[Ссылка на проект](https://pavelnyukalo.github.io/promobot-test/build/)
+[Ссылка на проект](https://pavelnyukalo.github.io/promobot-test/dist/)
 
 ## Используемые технологии
 * HTML
 * SCSS
-* JavaScript
+* Vue.js
 * BEM
-* Gulp
 
-## Запуск приложения
-1. Командой `npm install` устанавливаются необходимые пакеты
-2. Команда `npm run build` собирает исходники в папку `build`
-3. Команда `npm start` запускает локальный сервер
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
