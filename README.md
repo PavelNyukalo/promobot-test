@@ -6,7 +6,7 @@
 
 Браузерная поддержка - Google Chrome, Mozilla Firefox.
 
-[Ссылка на проект](https://pavelnyukalo.github.io/promobot-test/)
+[Ссылка на проект](https://pavel-nyukalo.github.io/promobot-test/)
 
 ## Используемые технологии
 * HTML
