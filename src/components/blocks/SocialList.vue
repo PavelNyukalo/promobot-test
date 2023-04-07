@@ -4,7 +4,7 @@
       <li class="social__item">
         <a
           class="social__link social__link--telegram"
-          href="https://t.me/nyukalo"
+          href="https://t.me/niukalo"
           target="_blank"
         >
           <span class="visually-hidden">Мой телеграм</span>
@@ -30,7 +30,7 @@
       <li class="social__item">
         <a
           class="social__link social__link--github"
-          href="https://github.com/PavelNyukalo"
+          href="https://github.com/pavel-niukalo"
           target="_blank"
         >
           <span class="visually-hidden">Мой GitHub</span>

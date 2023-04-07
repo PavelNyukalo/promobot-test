@@ -1,5 +1,5 @@
 const url =
-  "https://raw.githubusercontent.com/PavelNyukalo/promobot-test/master/products.json";
+  "https://raw.githubusercontent.com/pavel-niukalo/promobot-test/master/products.json";
 
 const getData = (onSuccess) => {
   fetch(url)

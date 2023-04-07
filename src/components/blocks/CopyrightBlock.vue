@@ -1,6 +1,6 @@
 <template>
   <div class="copyright">
-    <p class="copyright__text">Developed by <span>Pavel Nyukalo</span></p>
+    <p class="copyright__text">Developed by <span>Pavel Niukalo</span></p>
   </div>
 </template>
 

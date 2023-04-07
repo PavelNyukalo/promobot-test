@@ -9,15 +9,15 @@
       />
     </a>
 
-    <a class="contacts__link" href="tel:+79223520991" target="_blank"
-      >8 (922) 352-09-91</a
+    <a class="contacts__link" href="tel:+37455873002" target="_blank"
+      >+374 55 87 3002</a
     >
 
     <a
       class="contacts__link"
-      href="mailto:pavelnyukalo@gmail.com"
+      href="mailto:pavelniukalo.work@gmail.com"
       target="_blank"
-      >pavelnyukalo@gmail.com</a
+      >pavelniukalo.work@gmail.com</a
     >
   </div>
 </template>
